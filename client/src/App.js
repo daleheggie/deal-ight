@@ -1,4 +1,7 @@
 import { Component } from 'react';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import SignupPage from './pages/SignupPage';
+import LoginPage from './pages/LoginPage';
 import './App.css';
 
 class App extends Component {
@@ -11,20 +14,23 @@ class App extends Component {
 
   }
 
-  renderUserPage = (token) => {
-    return (< UserPage />)
+  renderUserPage = () => {
+    // let token = sessionStorage.getItem('token');
+    // return (< UserPage token={token}/>)
+    <h1>Home Page</h1>
   }
 
   render() {
-    if (!isLoggedIn){
-      <>
-        <h1>Welcome to Deal-ite</h1>
-        <button onClick={handleSignup}>Sign up here</button>
-      </>
-    }
-    if (isLoggedIn){
-      renderUserPage()
-    }
+    return (
+      <Switch>
+        <Route path='/' exact>
+            {!this.state.isLoggedIn ? <Redirect to='/signup'/> : this.renderUserPage()}
+        </Route>
+        <Route path='/signup' component={SignupPage} />
+        <Route path='/login' component={LoginPage} />
+      </Switch>
+    )
+    
     
   }
 }
