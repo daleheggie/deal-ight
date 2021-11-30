@@ -1,14 +1,11 @@
-
 exports.up = function(knex) {
     return knex
             .schema
             .createTable('users', (table) => {
                 table.increments('id').primary();
-                table.string('username').notNullable();
+                table.string('username').notNullable().unique();
                 table.string('password').notNullable();
                 table.string('name').notNullable();
-                table.string('favourite_id').defaultTo('');
-                table.string('favourite_deal_id').defaultTo('');
                 table.timestamp('updated_at').defaultTo(knex.fn.now());
             })
             .createTable('establishments', table => {
@@ -35,8 +32,33 @@ exports.up = function(knex) {
                 table.integer('dislikes').defaultTo(0);
                 table.timestamp('updated_at').defaultTo(knex.fn.now());
             })
+            .createTable('users_deals', table => {
+                table.increments('id').primary();
+                table.integer('user_id')
+                    .unsigned()
+                    .references('id')
+                    .inTable('users');
+                table.integer('deal_id')
+                    .unsigned()
+                    .references('id')
+                    .inTable('deals');
+                table.timestamp('updated_at').defaultTo(knex.fn.now());
+            })
+            .createTable('users_establishments', table => {
+                table.increments('id').primary();
+                table.integer('user_id')
+                    .unsigned()
+                    .references('id')
+                    .inTable('users');
+                table.integer('establishment_id')
+                    .unsigned()
+                    .references('id')
+                    .inTable('establishments');
+                table.timestamp('updated_at').defaultTo(knex.fn.now());
+            })
+
 };
 
 exports.down = function(knex) {
-    return knex.schema.dropTable('deals').dropTable('establishments').dropTable('users')
+    return knex.schema.dropTable('users_establishments').dropTable('users_deals').dropTable('deals').dropTable('establishments').dropTable('users')
 };

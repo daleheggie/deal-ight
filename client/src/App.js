@@ -1,33 +1,28 @@
 import { Component } from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
-import SignupPage from './pages/SignupPage';
-import LoginPage from './pages/LoginPage';
+import { Switch, Route } from 'react-router-dom';
+import LandingPage from './pages/LandingPage';
+import UserPage from './pages/UserPage';
 import './App.css';
 
 class App extends Component {
   state={
-    isLoggedIn: false,
-
+    isLoggedIn: false
   }
 
-  handleSignup = () => {
-
+  handleLogin = () => {
+    this.setState({isLoggedIn: true});
   }
-
-  renderUserPage = () => {
-    // let token = sessionStorage.getItem('token');
-    // return (< UserPage token={token}/>)
-    <h1>Home Page</h1>
+  handleLogout = () => {
+    this.setState({isLoggedIn: false})
   }
 
   render() {
+    
     return (
       <Switch>
         <Route path='/' exact>
-            {!this.state.isLoggedIn ? <Redirect to='/signup'/> : this.renderUserPage()}
+            {!this.state.isLoggedIn ? <LandingPage handleLogin={this.handleLogin}/> : <UserPage handleLogout={this.handleLogout}/>}
         </Route>
-        <Route path='/signup' component={SignupPage} />
-        <Route path='/login' component={LoginPage} />
       </Switch>
     )
     

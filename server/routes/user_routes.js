@@ -1,13 +1,15 @@
 const router = require('express').Router();
 const userController = require('../controllers/users_controller');
+const authorize = require('../middleware/authorize')
 
-router.route('/signup')
-        .post(userController.signupUser)
-router.route('/login')
-        .post(userController.loginUser)
-router.route('/:id')
-        // .get(userController.authorize)
-        .get(userController.getUserById)
+router.use(authorize)
+
+router.route('/')
+        .get(userController.getUser)
         .delete(userController.deleteUser)
+router.route('/:id/favourite/deals')
+        .get(userController.getUserFavouriteDeals)
+router.route('/:id/favourite/places')
+        .get(userController.getUserFavouritePlaces)
 
 module.exports = router;

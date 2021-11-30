@@ -1,21 +1,27 @@
 import { Component } from 'react';
+import axios from 'axios'
 
-class SignupPage extends Component {
+class LoginForm extends Component {
+
     state = {
-        name: '',
         username: '',
-        password: ''
+        password: '',
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
         let userInfo = {
-            name: this.state.name,
             username: this.state.username,
             password: this.state.password
         }
-        console.log(userInfo)
-        // axios post request to the users table
+        this.setState({username: '', password: ''})
+        
+        axios
+            .post('http://localhost:5000/login', userInfo)
+            .then(res => {
+                sessionStorage.setItem('token', res.data.token)
+                this.props.handleLogin()
+            })
     }
 
     handleChange = (event) => {
@@ -26,14 +32,9 @@ class SignupPage extends Component {
 
     render() {
         return(
-            <section>
-                <h1>Signup page</h1>
-                <form id='signup-form' onSubmit={this.handleSubmit}>
-                    <input type='text' 
-                            name='name' 
-                            placeholder='Your Name' 
-                            value={this.state.name}
-                            onChange={this.handleChange}></input>
+            <>
+                <h1>Login</h1>
+                <form id='login-form' onSubmit={this.handleSubmit}>
                     <input type='text' 
                             name='username' 
                             placeholder='Your Username' 
@@ -45,10 +46,11 @@ class SignupPage extends Component {
                             value={this.state.password}
                             onChange={this.handleChange}></input>
                 </form>
-                <button type='submit' form='signup-form'>Sign up</button>
-            </section>
+                <button type='submit' form='login-form'>Log In</button>
+                <button onClick={this.props.handleShowSignup}>Register Here</button>
+            </>
         );
     } 
 }
 
-export default SignupPage;
+export default LoginForm;
