@@ -1,30 +1,31 @@
 import { Component } from 'react';
+import { Switch, Route } from 'react-router-dom';
+import LandingPage from './pages/LandingPage';
+import UserPage from './pages/UserPage';
 import './App.css';
 
 class App extends Component {
   state={
-    isLoggedIn: false,
-
+    isLoggedIn: false
   }
 
-  handleSignup = () => {
-
+  handleLogin = () => {
+    this.setState({isLoggedIn: true});
   }
-
-  renderUserPage = (token) => {
-    return (< UserPage />)
+  handleLogout = () => {
+    this.setState({isLoggedIn: false})
   }
 
   render() {
-    if (!isLoggedIn){
-      <>
-        <h1>Welcome to Deal-ite</h1>
-        <button onClick={handleSignup}>Sign up here</button>
-      </>
-    }
-    if (isLoggedIn){
-      renderUserPage()
-    }
+    
+    return (
+      <Switch>
+        <Route path='/' exact>
+            {!this.state.isLoggedIn ? <LandingPage handleLogin={this.handleLogin}/> : <UserPage handleLogout={this.handleLogout}/>}
+        </Route>
+      </Switch>
+    )
+    
     
   }
 }
