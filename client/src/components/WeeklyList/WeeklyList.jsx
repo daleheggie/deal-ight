@@ -1,6 +1,6 @@
 import DailyCard from "../DailyCard";
 
-const WeeklyList = ({today, userId}) => {
+const WeeklyList = ({today}) => {
 
     const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
     let dayOfTheWeek = days[today.getDay()];
@@ -15,7 +15,7 @@ const WeeklyList = ({today, userId}) => {
     return(
         
         computedWeek.map(day => {
-            return <DailyCard today={day} />
+            return <DailyCard today={day} key={day}/>
         })
         
     );
