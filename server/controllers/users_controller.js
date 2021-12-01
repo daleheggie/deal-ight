@@ -1,4 +1,3 @@
-const { entries } = require('../seed_data/users');
 const knex = require('knex')(require('../knexfile').development);
 
 const getUser = (req,res) => {

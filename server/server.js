@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const cors = require('cors');
 const knex = require('knex')(require('./knexfile').development);
 const userRoutes = require('./routes/user_routes');
+const dealsRoutes = require('./routes/deals_routes');
 
 app.use(express.json());
 app.use(cors());
@@ -13,6 +14,7 @@ const port = process.env.PORT || 8080;
 
 // All user specific requests, requires jwt verification 
 app.use('/profile', userRoutes);
+app.use('/deals', dealsRoutes);
 
 // Signup a new user
 app.post('/signup', (req,res) => {

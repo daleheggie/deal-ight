@@ -9,9 +9,16 @@ class App extends Component {
     isLoggedIn: false
   }
 
+  componentDidMount() {
+    if (sessionStorage.getItem('token')) {
+        this.setState({isLoggedIn: true})
+    }
+  }
+
   handleLogin = () => {
     this.setState({isLoggedIn: true});
   }
+  
   handleLogout = () => {
     this.setState({isLoggedIn: false})
   }

@@ -1,5 +1,6 @@
 import { Component } from "react";
 import axios from 'axios';
+import WeeklyList from "../../components/WeeklyList/WeeklyList";
 
 class UserPage extends Component {
 
@@ -31,6 +32,8 @@ class UserPage extends Component {
             <>
                 <h1>Welcome {this.state.user.name}</h1>
                 <button onClick={this.props.handleLogout}>Log Out</button>
+                <WeeklyList today={new Date()} userId={this.state.user.id}/>
+
             </>
         )
     }

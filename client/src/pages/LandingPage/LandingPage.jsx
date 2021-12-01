@@ -10,6 +10,7 @@ class LandingPage extends Component {
         confirmPassword: '',
         showSignup: false
     }
+    
     handleShowSignup = () => {
         this.setState({showSignup: true})
     }
