@@ -1,6 +1,7 @@
 import React from "react";
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { removeFromFavouriteDeals } from '../../utils/removeFromFavourites';
 
 const FavouriteDealsList = (props) => {
 
@@ -16,7 +17,7 @@ const FavouriteDealsList = (props) => {
         .then(res => {
             setDeals(res.data)
         })
-    }, [setDeals])
+    }, [deals])
 
     if (!deals) return <h2>Oops...looks like there was a problem getting the list of deals</h2>
     
@@ -25,7 +26,10 @@ const FavouriteDealsList = (props) => {
             <h3>Favourite Deals</h3>
             <ul>
                 {deals.map(deal => {
-                    return (<li>{deal.day} - {deal.details}</li>)
+                    return (<li key={deal.id}>
+                                    {deal.day} - <Link to={`${deal.establishment_id}`}>{deal.details}</Link>
+                                    <button onClick={()=>removeFromFavouriteDeals(deal.id)}>Remove from favourites</button>
+                            </li>)
                 })}
             </ul>
         </>

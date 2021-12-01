@@ -40,9 +40,7 @@ class App extends Component {
           <Route path='/places' exact>
               <PlacesPage />
           </Route>
-          <Route path='/places/:establishmentId' exact>
-              <BusinessPage />
-          </Route>
+          <Route path='/places/:establishment_id' exact component={BusinessPage}/>
           <Route path='/deals'>
               <DealsPage />
           </Route>

@@ -8,7 +8,15 @@ const allPlaces = (req,res) => {
             res.json(data)
         })
 }
+const placeById = (req,res) => {
+    knex('establishments')
+        .where({id: req.params.establishment_id})
+        .then(data => {
+            res.json(data)
+        })
+}
 
 module.exports = {
-    allPlaces
+    allPlaces,
+    placeById
 }

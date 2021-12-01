@@ -10,7 +10,11 @@ router.route('/')
         .delete(userController.deleteUser)
 router.route('/favourite/deals')
         .get(userController.getUserFavouriteDeals)
+        .post(userController.addToFavouriteDeals)
+router.route('/favourite/deals/:deal_id')
+        .delete(userController.deleteFavouriteDeal)        
 router.route('/favourite/places')
         .get(userController.getUserFavouritePlaces)
+        .post(userController.addToFavouritePlaces)        
 
 module.exports = router;

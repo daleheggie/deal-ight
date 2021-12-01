@@ -16,7 +16,7 @@ const FavouritePlacesList = (props) => {
         .then(res => {
             setPlaces(res.data)
         })
-    }, [setPlaces])
+    }, [places])
 
     if (!places) return <h2>Oops...looks like there was a problem getting the list of places</h2>
     return(

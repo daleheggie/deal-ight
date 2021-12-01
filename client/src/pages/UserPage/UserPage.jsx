@@ -11,6 +11,7 @@ class UserPage extends Component {
     }
 
     componentDidMount() {
+        // Get user details from token
         axios
             .get(`http://localhost:5000/profile`, {
                 headers: {
@@ -20,6 +21,7 @@ class UserPage extends Component {
             .then(res => {
                 this.setState({user: res.data[0]})
             })
+
     }
 
     render() {

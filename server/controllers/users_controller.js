@@ -48,9 +48,40 @@ const getUserFavouritePlaces = (req,res) => {
         })
 }
 
+const addToFavouriteDeals = (req,res) => {
+    knex('users_deals')
+        .insert({user_id: req.decoded.data,
+                deal_id: req.body.deal_id})
+        .then(data => {
+            res.json(data)
+        })
+}
+
+const addToFavouritePlaces = (req,res) => {
+    knex('users_establishments')
+        .insert({user_id: req.decoded.data,
+                establishment_id: req.body.establishment_id})
+        .then(data => {
+            res.json(data)
+        })
+}
+
+const deleteFavouriteDeal = (req,res) => {
+    knex('users_deals')
+        .where({user_id: req.decoded.data,
+                deal_id: req.params.deal_id})
+        .del()
+        .then(data => {
+            res.json(data)
+        })
+}
+
 module.exports = {
     getUser,
     deleteUser,
     getUserFavouriteDeals,
-    getUserFavouritePlaces
+    getUserFavouritePlaces,
+    addToFavouriteDeals,
+    addToFavouritePlaces,
+    deleteFavouriteDeal
 }

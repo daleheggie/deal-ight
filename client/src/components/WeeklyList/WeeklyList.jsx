@@ -3,7 +3,7 @@ import DailyCard from "../DailyCard";
 const WeeklyList = ({today}) => {
 
     const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
-    let dayOfTheWeek = days[today.getDay()];
+    // let dayOfTheWeek = days[today.getDay()];
 
     // Compute a new array of days with today as the first entry
     let computedWeek = [];
