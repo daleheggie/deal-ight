@@ -15,6 +15,8 @@ router.route('/favourite/deals/:deal_id')
         .delete(userController.deleteFavouriteDeal)        
 router.route('/favourite/places')
         .get(userController.getUserFavouritePlaces)
-        .post(userController.addToFavouritePlaces)        
+        .post(userController.addToFavouritePlaces)
+router.route('/favourite/places/:place_id')
+        .delete(userController.deleteFavouritPlace)
 
 module.exports = router;

@@ -76,6 +76,16 @@ const deleteFavouriteDeal = (req,res) => {
         })
 }
 
+const deleteFavouritPlace = (req,res) => {
+    knex('users_establishments')
+        .where({user_id: req.decoded.data,
+                establishment_id: req.params.place_id})
+        .del()
+        .then(data => {
+            res.json(data)
+        })
+}
+
 module.exports = {
     getUser,
     deleteUser,
@@ -83,5 +93,6 @@ module.exports = {
     getUserFavouritePlaces,
     addToFavouriteDeals,
     addToFavouritePlaces,
-    deleteFavouriteDeal
+    deleteFavouriteDeal,
+    deleteFavouritPlace
 }

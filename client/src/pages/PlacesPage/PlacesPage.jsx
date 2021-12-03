@@ -23,7 +23,7 @@ class PlacesPage extends Component {
     render() {
         return (
             <>
-                <PlacesList />
+                <PlacesList user={this.state.user}/>
             </>
         )
     }

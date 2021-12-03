@@ -23,7 +23,7 @@ class DealsPage extends Component {
     render() {
         return (
             <>
-                <DealsList />
+                <DealsList user={this.state.user}/>
             </>
         )
     }

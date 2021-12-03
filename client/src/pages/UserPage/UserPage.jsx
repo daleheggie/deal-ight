@@ -21,7 +21,9 @@ class UserPage extends Component {
             .then(res => {
                 this.setState({user: res.data[0]})
             })
-
+            .catch(err => {
+                this.props.handleLogout()
+            })
     }
 
     render() {

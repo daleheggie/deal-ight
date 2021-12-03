@@ -15,6 +15,10 @@ exports.up = function(knex) {
                 table.string('menu');
                 table.string('cuisine').notNullable();
                 table.string('address');
+                table.integer('owner_id')
+                    .unsigned()
+                    .references('id')
+                    .inTable('users')
                 table.timestamp('updated_at').defaultTo(knex.fn.now());
             })
             .createTable('deals', table => {

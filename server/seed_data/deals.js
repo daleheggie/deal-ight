@@ -11,7 +11,7 @@ module.exports = [
     },
     {
         id: 2,
-        day: 'monday,wednesday',
+        day: 'monday/wednesday',
         until: new Date(2021, 11, 25),
         establishment_id: 2,
         details: 'Any burger and any pint for $15',
@@ -20,7 +20,7 @@ module.exports = [
     },
     {
         id: 3,
-        day: 'sunday,monday,tuesday,wednesday,thursday',
+        day: 'sunday/monday/tuesday/wednesday/thursday',
         until: new Date(2022, 2, 6),
         establishment_id: 3,
         details: '5 courses for $50, wine pairings for an additional $18',

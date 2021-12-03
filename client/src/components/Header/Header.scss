@@ -1,0 +1,40 @@
+@use '../../styles/colours' as *;
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $neutral;
+
+    &__logo{
+        width: 200px;
+    }
+
+    &__nav-list{
+        display: flex;
+        list-style: none;
+        padding: 0;
+    }
+
+    &__nav-list-item{
+        margin: 0 24px;
+    }
+
+    &__link {
+        text-decoration: none;
+        color: inherit;
+        padding: 4px 20px;
+        &:hover {
+            text-decoration: underline;
+        }
+
+        &--active {
+            @extend .header__link;
+            text-decoration: none;
+            color: white !important;
+            background-color: $main-colour;
+            width: 120px;
+            border-radius: 20px;
+        }
+    }
+}

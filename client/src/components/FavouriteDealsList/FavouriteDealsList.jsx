@@ -25,10 +25,11 @@ const FavouriteDealsList = (props) => {
         <>
             <h3>Favourite Deals</h3>
             <ul>
+                
                 {deals.map(deal => {
                     return (<li key={deal.id}>
-                                    {deal.day} - <Link to={`${deal.establishment_id}`}>{deal.details}</Link>
-                                    <button onClick={()=>removeFromFavouriteDeals(deal.id)}>Remove from favourites</button>
+                                    {deal.day} - <Link to={`/places/${deal.establishment_id}`}>{deal.details}</Link>
+                                    <button onClick={()=>removeFromFavouriteDeals(deal.id)}>Remove</button>
                             </li>)
                 })}
             </ul>

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React from 'react';
-import { addToFavouriteDeals } from '../../utils/addToFavourites';
+import { addToFavouriteDeals } from '../../utils/addToFavourites'
 
 
 const DailyCard = ({ today }) => {

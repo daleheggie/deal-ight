@@ -46,15 +46,17 @@ app.post('/login', (req,res) => {
         // Check if username exists and if password is a match
         .then(data => {
             if (data.length === 0) {
-                res.status(400).json({message: `Incorrect credentials, username: ${username} does not exist`})
+                res.json({message: `Username: ${username} does not exist`,
+                        error: true})
                 return -1
             }
             if (data[0].password !== password){
-                res.status(401).json({message: `Incorrect credentials, password does not match`})
+                res.json({message: `Incorrect username/password combination`,
+                        error: true})
                 return -1
             }
             // Generate token and send to the client
-            let token = jwt.sign({data: data[0].id}, process.env.JWT_SECRET, {expiresIn: '1h'})
+            let token = jwt.sign({data: data[0].id}, process.env.JWT_SECRET)
 
             res.json({
                 token: token,

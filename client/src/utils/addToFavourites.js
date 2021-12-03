@@ -1,9 +1,9 @@
 import axios from 'axios';
+import { API_URL } from './_globals';
 
 export const addToFavouriteDeals = (deal_id) => {
-
     axios
-        .post(`http://localhost:5000/profile/favourite/deals`, {
+        .post(`${API_URL}/profile/favourite/deals`, {
             deal_id: deal_id
         }, {
             headers: {
@@ -20,7 +20,7 @@ export const addToFavouriteDeals = (deal_id) => {
 export const addToFavouritePlaces = (establishment_id) => {
 
     axios
-        .post(`http://localhost:5000/profile/favourite/places`, {
+        .post(`${API_URL}/profile/favourite/places`, {
             establishment_id: establishment_id
         }, {
             headers: {

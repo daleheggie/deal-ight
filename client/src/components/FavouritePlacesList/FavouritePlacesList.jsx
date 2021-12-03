@@ -1,6 +1,7 @@
 import React from "react";
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { removeFromFavouritePlaces } from "../../utils/removeFromFavourites";
 
 const FavouritePlacesList = (props) => {
 
@@ -24,7 +25,7 @@ const FavouritePlacesList = (props) => {
             <h3>Favourite Places</h3>
             <ul>
                 {places.map(place => {
-                    return (<li key= {place.id}><Link to={`/places/${place.id}`} >{place.name}</Link></li>)
+                    return (<li key= {place.id}><Link to={`/places/${place.id}`} >{place.name}</Link><button onClick={()=>removeFromFavouritePlaces(place.id)}>Remove</button></li>)
                 })}
             </ul>
         </>
