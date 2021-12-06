@@ -21,29 +21,35 @@ class SignupForm extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
+        const {name, username, password, confirmPassword} = this.state
+        
         axios
-            .get(`http://localhost:5000/${this.state.username}`)
+            .get(`http://localhost:5000/${username}`)
             .then(res => {
                 if (res.data.message) {
                     this.setState({errorMessage: 'This username is already taken, please choose another', isError: true})
                     return false
                 }
-                else if (this.state.password !== this.state.confirmPassword){
+                else if (!name || !username || !password || !confirmPassword) {
+                    this.setState({errorMessage: 'All fields are required for signup', isError: true})
+                }
+                else if (password !== confirmPassword){
                     this.setState({errorMessage: 'Passwords do not match', isError: true})
                 }
-                else if (this.state.password.length < 8) {
+                else if (password.length < 8) {
                     this.setState({errorMessage: 'Password must be at least 8 characters long', isError: true})
                 }
                 else {
                     let userInfo = {
-                        name: this.state.name,
-                        username: this.state.username,
-                        password: this.state.password
+                        name: name,
+                        username: username,
+                        password: password,
+                        confirmPassword: confirmPassword
                     }
                     axios
                         .post('http://localhost:5000/signup', userInfo)
                         .then(res => {
-                            console.log(res)
+                            // Responds with the id of the new user
                         })
                     this.props.handleClearSignup();
                     return <Redirect to='/' />

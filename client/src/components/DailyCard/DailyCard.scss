@@ -1,0 +1,38 @@
+@use '../../styles/colours' as *;
+@use '../../styles/global' as *;
+@use '../../styles/mixins' as *;
+
+.daily-card {
+    background-color: $chalkboard;
+    // border-radius: 20px;
+    margin: 16px 0;
+    padding: 0 16px 24px;
+    border: 4px solid $neutral;
+    color: $neutral;
+    text-align: center;
+    box-shadow: 4px 4px 8px $contrast-accent;
+    
+    &__day {
+        border-bottom: 2px solid $light-script
+    }
+
+    &__entry{
+        background-color: $chalkboard;
+        color: $light-script;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 8px;
+        margin: 8px 0;
+    }
+
+
+    &__place {
+        width: 150px;
+    }
+
+    &__button {
+        @include favButton;
+    }
+}

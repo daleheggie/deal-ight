@@ -1,0 +1,26 @@
+@use './variables' as *;
+@use './colours' as *;
+
+@mixin tablet {
+    @media (min-width: $tablet) {
+      @content;
+    }
+  }
+  
+@mixin desktop {
+  @media (min-width: $desktop) {
+    @content;
+  }
+}
+
+@mixin favButton {
+  border: 2px solid $contrast-accent;
+  color: $light-script;
+  background-color: $main-colour;
+  border-radius: 20px;
+
+  &:hover{
+    background-color: $neutral;
+    color: black;
+  }
+}

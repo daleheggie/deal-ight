@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { removeFromFavouriteDeals } from '../../utils/removeFromFavourites';
 
-const FavouriteDealsList = (props) => {
+const FavouriteDealsList = ({setFavouriteDeals}) => {
 
     let [deals, setDeals] = React.useState([])
 
@@ -25,7 +25,7 @@ const FavouriteDealsList = (props) => {
         <>
             <h3>Favourite Deals</h3>
             <ul>
-                
+
                 {deals.map(deal => {
                     return (<li key={deal.id}>
                                     {deal.day} - <Link to={`/places/${deal.establishment_id}`}>{deal.details}</Link>

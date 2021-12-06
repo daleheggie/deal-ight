@@ -3,11 +3,13 @@ import axios from 'axios';
 import WeeklyList from "../../components/WeeklyList/WeeklyList";
 import FavouritePlacesList from "../../components/FavouritePlacesList";
 import FavouriteDealsList from "../../components/FavouriteDealsList";
+import './UserPage.scss'
 
 class UserPage extends Component {
 
     state = {
-        user: null
+        user: null,
+        favouriteDeals: []
     }
 
     componentDidMount() {
@@ -26,18 +28,27 @@ class UserPage extends Component {
             })
     }
 
+    setFavouriteDeals = (deals) => {
+        let deal_ids = deals.map(deal => {
+            return(deal.id)
+        })
+        if (deal_ids !== this.state.favouriteDeals) {
+            this.setState({favouriteDeals: deal_ids})
+        }
+    }
+
     render() {
         if (!this.state.user) {
             return (<p>LOADING ... </p>)
         }
         return (
-            <>
+            <section className='user-page'>
                 <h1>Welcome {this.state.user.name}</h1>
                 <button onClick={this.props.handleLogout}>Log Out</button>
                 <FavouritePlacesList />
-                <FavouriteDealsList />
+                <FavouriteDealsList setFavouriteDeals={this.setFavouriteDeals}/>
                 <WeeklyList today={new Date()} />
-            </>
+            </section>
         )
     }
 }

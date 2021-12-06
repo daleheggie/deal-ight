@@ -21,7 +21,6 @@ app.use('/places', placesRoutes);
 
 // Check username exists endpoint, used for signup validation only
 app.get('/:username', (req,res) => {
-    console.log(req.params.username)
     knex('users')
         .where({username: req.params.username})
         .then(data => {
@@ -39,9 +38,9 @@ app.get('/:username', (req,res) => {
 // Signup a new user
 app.post('/signup', (req,res) => {
     // Validate the request data
-    const {username, name, password} = req.body;
+    const {username, name, password, confirmPassword} = req.body;
 
-    if (!username || !name || !password) {
+    if (!username || !name || !password || !confirmPassword) {
         res.status(400).json({
             message: 'All fields are required for signup'})
     }
