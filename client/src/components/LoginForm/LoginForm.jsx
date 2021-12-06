@@ -17,7 +17,7 @@ class LoginForm extends Component {
             username: this.state.username,
             password: this.state.password
         }
-        this.setState({username: '', password: ''})
+        this.setState({password: ''})
         
         axios
             .post('http://localhost:5000/login', userInfo)
@@ -51,7 +51,8 @@ class LoginForm extends Component {
                             placeholder='Username' 
                             value={this.state.username}
                             onChange={this.handleChange}
-                            className='login__input'></input>
+                            className='login__input'
+                            autoFocus></input>
                     <input type='password' 
                             name='password' 
                             placeholder='<password>' 

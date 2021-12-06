@@ -19,6 +19,23 @@ app.use('/profile', userRoutes);
 app.use('/deals', dealsRoutes);
 app.use('/places', placesRoutes);
 
+// Check username exists endpoint, used for signup validation only
+app.get('/:username', (req,res) => {
+    console.log(req.params.username)
+    knex('users')
+        .where({username: req.params.username})
+        .then(data => {
+            // res.json(data[0])
+            if (data[0]) {
+                res.json({message: 'This username is already taken, please choose another'})
+            }
+            else {
+                res.sendStatus(200)
+            }
+        })
+})
+
+
 // Signup a new user
 app.post('/signup', (req,res) => {
     // Validate the request data

@@ -7,29 +7,59 @@ class SignupForm extends Component {
         name: '',
         username: '',
         password: '',
-        confirmPassword: ''
+        confirmPassword: '',
+        errorMessage: '',
+        isError: false
     }
 
     handleChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value
         })
+       
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
-        let userInfo = {
-            name: this.state.name,
-            username: this.state.username,
-            password: this.state.password
-        }
         axios
-            .post('http://localhost:5000/signup', userInfo)
+            .get(`http://localhost:5000/${this.state.username}`)
             .then(res => {
-                
+                if (res.data.message) {
+                    this.setState({errorMessage: 'This username is already taken, please choose another', isError: true})
+                    return false
+                }
+                else if (this.state.password !== this.state.confirmPassword){
+                    this.setState({errorMessage: 'Passwords do not match', isError: true})
+                }
+                else if (this.state.password.length < 8) {
+                    this.setState({errorMessage: 'Password must be at least 8 characters long', isError: true})
+                }
+                else {
+                    let userInfo = {
+                        name: this.state.name,
+                        username: this.state.username,
+                        password: this.state.password
+                    }
+                    axios
+                        .post('http://localhost:5000/signup', userInfo)
+                        .then(res => {
+                            console.log(res)
+                        })
+                    this.props.handleClearSignup();
+                    return <Redirect to='/' />
+                }
             })
-        this.props.handleClearSignup();
-        return <Redirect to='/' />
+    }
+
+    validateUsername = () => {
+        console.log(this.state.username)
+        // axios
+        //     .get(`http://localhost:5000/${this.state.username}`)
+        //     .then(res => {
+        //         console.log(res)
+        //     })
+
+        return true
     }
 
     handleReturnToLogin = () => {
@@ -55,7 +85,8 @@ class SignupForm extends Component {
                                 name='name' 
                                 placeholder='Your Name' 
                                 value={this.state.name}
-                                onChange={this.handleChange}></input>
+                                onChange={this.handleChange}
+                                autoFocus></input>
                         <input type='text' 
                                 name='username' 
                                 placeholder='Your Username' 
@@ -72,6 +103,7 @@ class SignupForm extends Component {
                                 value={this.state.confirmPassword}
                                 onChange={this.handleChange}></input>
                     </form>
+                    {this.state.isError ? <p>{this.state.errorMessage}</p> : <></>}
                 <button type='submit' form='signup-form'>Sign up</button>
                 <button onClick={this.handleReturnToLogin}>Return to Log in</button>
             </>

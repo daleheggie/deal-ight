@@ -45,7 +45,8 @@ exports.up = function(knex) {
                 table.integer('deal_id')
                     .unsigned()
                     .references('id')
-                    .inTable('deals');
+                    .inTable('deals')
+                    .onDelete('CASCADE');
                 table.timestamp('updated_at').defaultTo(knex.fn.now());
             })
             .createTable('users_establishments', table => {

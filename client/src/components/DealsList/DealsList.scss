@@ -1,0 +1,7 @@
+.deal-list{
+    &__add-favourite-button{
+        &--hidden {
+            display: none;
+        }
+    }
+}

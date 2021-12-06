@@ -30,11 +30,12 @@ class BusinessPage extends Component {
         if (!this.state.establishment) return <></>
         return(
             <section className='business-page'>
-                {this.state.establishment.owner_id === this.state.user.id ? <BusinessDashboard /> : <></>}
+                {this.state.establishment.owner_id === this.state.user.id ? <BusinessDashboard establishment_id={this.state.establishment.id}/> : <></>}
                 <BusinessHeader establishment={this.state.establishment} />
                 {/* {console.log(this.state.establishment.id)} */}
                 <h4>Our Deals</h4>
-                <DealsList establishment_id={this.state.establishment.id}/>
+                {this.state.establishment.owner_id === this.state.user.id ? <DealsList establishment_id={this.state.establishment.id} removeButton={true} />
+                                                                        : <DealsList establishment_id={this.state.establishment.id} user={this.state.user.id}/>}
             </section>
         );
     }

@@ -25,7 +25,30 @@ const allDeals = (req,res) => {
         })
 }
 
+const addDeal = (req,res) => {
+    res.json(req.body)
+    knex('deals')
+        .insert({day: req.body.day,
+                until: req.body.until,
+                establishment_id: req.body.establishment_id,
+                details: req.body.details})
+        .then(data => {
+            console.log(data)
+        })
+}
+
+const deleteDeal = (req,res) => {
+    knex('deals')
+        .where({id: req.params.deal_id})
+        .del()
+        .then(data => {
+            res.json(data)
+        })
+}
+
 module.exports = {
     dealsByDay,
-    allDeals
+    allDeals,
+    addDeal,
+    deleteDeal
 }
