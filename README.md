@@ -1,10 +1,13 @@
-# Getting Started with Create React App
+# Deal-ight
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A handy tool to help keep track of the food and drink specials in your area
 
 ## Available Scripts
 
-In the project directory, you can run:
+Once you have cloned the project directory, start by navigating to the client folder using:
+### `cd client`
+then installing the required dependencies with
+### `npm install`
 
 ### `npm start`
 
