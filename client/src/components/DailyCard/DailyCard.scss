@@ -1,10 +1,10 @@
 @use '../../styles/colours' as *;
 @use '../../styles/global' as *;
 @use '../../styles/mixins' as *;
+@use '../../styles/typeography' as *;
 
 .daily-card {
     background-color: $chalkboard;
-    // border-radius: 20px;
     margin: 16px 0;
     padding: 0 16px 24px;
     border: 4px solid $neutral;
@@ -13,7 +13,10 @@
     box-shadow: 4px 4px 8px $contrast-accent;
     
     &__day {
-        border-bottom: 2px solid $light-script
+        margin: 0;
+        font-family: 'smooch';
+        border-bottom: 2px solid $light-script;
+        font-size: 48px;
     }
 
     &__entry{

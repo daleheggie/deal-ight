@@ -1,4 +1,9 @@
+@use '../styles/typeography' as *;
 
+body {
+    font-family: 'source-sans';
+    font-size: 13px;
+}
 h1 {
     font-size: 28px;
 }

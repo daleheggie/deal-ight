@@ -1,0 +1,17 @@
+@use '../../styles/mixins' as *;
+
+.favourite-places {
+    &__list{
+        list-style: none;
+        padding: 0;
+    }
+
+    &__place {
+        color: inherit;
+    }
+    &__button {
+        @include favButton;
+        position: absolute;
+        right: 25px;
+    }
+}

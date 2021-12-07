@@ -1,0 +1,43 @@
+@use '../../styles/colours' as *;
+@use '../../styles/mixins' as *;
+
+.favourite-deals{
+    &__list{
+        list-style: none;
+        padding: 0;
+    }
+
+    &__entry {
+        display: flex;
+        border-bottom: 1px solid $chalkboard;
+        align-items: baseline;
+        padding: 4px 0;
+
+        &--headings{
+            @extend .favourite-deals__entry;
+            background-color: $neutral;
+            color: $chalkboard;
+            border: none;
+        }
+        &:hover{
+            background-color: $light-script;
+        }
+    }
+
+    &__day-column {
+        width: 75px;
+    }
+    
+    &__deal-column {
+        width: 50%;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    &__button {
+        @include favButton;
+        position: absolute;
+        right: 25px;
+    }
+
+}

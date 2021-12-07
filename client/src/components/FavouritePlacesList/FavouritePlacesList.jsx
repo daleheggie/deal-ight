@@ -2,6 +2,7 @@ import React from "react";
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { removeFromFavouritePlaces } from "../../utils/removeFromFavourites";
+import './FavouritePlacesList.scss'
 
 const FavouritePlacesList = (props) => {
 
@@ -21,14 +22,14 @@ const FavouritePlacesList = (props) => {
 
     if (!places) return <h2>Oops...looks like there was a problem getting the list of places</h2>
     return(
-        <>
+        <section className='favourite-places'>
             <h3>Favourite Places</h3>
-            <ul>
+            <ul className='favourite-places__list'>
                 {places.map(place => {
-                    return (<li key= {place.id}><Link to={`/places/${place.id}`} >{place.name}</Link><button onClick={()=>removeFromFavouritePlaces(place.id)}>Remove</button></li>)
+                    return (<li key= {place.id}><Link className='favourite-places__place' to={`/places/${place.id}`} >{place.name}</Link><button className='favourite-places__button' onClick={()=>removeFromFavouritePlaces(place.id)}>Remove</button></li>)
                 })}
             </ul>
-        </>
+        </section>
     );
 }
 
