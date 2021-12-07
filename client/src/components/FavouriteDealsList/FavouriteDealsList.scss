@@ -13,6 +13,7 @@
     }
 
     &__link {
+        flex-grow: 2;
         text-decoration: none;
         color: inherit;
         display: flex;
@@ -46,7 +47,6 @@
     }
     
     &__deal-column {
-        flex-grow: 2;
         text-decoration: none;
         color: inherit;
     }
@@ -54,6 +54,7 @@
     &__button {
         @include favButton;
         min-width: 70px;
+        margin-left: 4px;
     }
 
 }

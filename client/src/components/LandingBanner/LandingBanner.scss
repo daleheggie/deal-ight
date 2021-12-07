@@ -1,15 +1,10 @@
 @use '../../styles/colours' as *;
 
 .landing-banner {
-    height: 350px;
+    height: 200px;
     background-image: url('http://localhost:5000/whistler-village-bc.jpg');
     background-size: cover;
+    background-position: center;
     color: $neutral;
-
-    &__title {
-        font-size: 28px;
-    }
-    &__subtitle {
-
-    }
+    margin-bottom: 16px;
 }

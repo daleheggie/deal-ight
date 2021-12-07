@@ -39,7 +39,7 @@ class UserPage extends Component {
 
     render() {
         if (!this.state.user) {
-            return (<p>LOADING ... </p>)
+            return <></>
         }
         return (
             <section className='user-page'>
