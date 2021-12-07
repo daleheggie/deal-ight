@@ -1,3 +1,4 @@
+<img src='http://localhost:5000/Dealight-logo.png' alt='Deal-ight logo' style='text-align:center'/>
 # Deal-ight
 
 A handy tool to help keep track of the food and drink specials in your area
