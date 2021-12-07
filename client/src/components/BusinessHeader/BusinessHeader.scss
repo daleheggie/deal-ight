@@ -1,0 +1,19 @@
+@use '../../styles/colours' as *;
+
+.business-header {
+    color: $light-script;
+    height: 200px;
+
+    &__titles {
+        display: flex;
+        align-items: baseline;
+        padding: 0 16px;
+    }
+    &__info {
+        padding: 0 16px;
+    }
+
+    &__place-name {
+        margin-bottom: 0;
+    }
+}

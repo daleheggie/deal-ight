@@ -7,7 +7,8 @@ module.exports = [
         menu: 'pastalupino.com',
         cuisine: 'Italian',
         owner_id: '2',
-        address: '4368 Main St #121, Whistler, BC V0N 1B4'
+        address: '4368 Main St #121, Whistler, BC V0N 1B4',
+        header_path: 'pasta-lupino-restaurant.jpg'
     },
     {
         id: 2,
@@ -16,7 +17,8 @@ module.exports = [
         menu: 'mjg.ca',
         cuisine: 'Gastro-pub',
         owner_id: '2',
-        address: '4355 Blackcomb Way, Whistler, BC V0N 1B4'
+        address: '4355 Blackcomb Way, Whistler, BC V0N 1B4',
+        header_path: 'brewhouse-restaurant.jpg'
     },
     {
         id: 3,
@@ -25,6 +27,7 @@ module.exports = [
         menu: 'araxi.com',
         cuisine: 'Seafood/Fine-dining',
         owner_id: '2',
-        address: '4222 Village Square #110, Whistler, BC V0N 1B4'
+        address: '4222 Village Square #110, Whistler, BC V0N 1B4',
+        header_path: 'araxi-restaurant.jpg'
     }
 ]

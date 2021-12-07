@@ -3,6 +3,7 @@ import axios from 'axios';
 import DealsList from "../../components/DealsList";
 import BusinessHeader from "../../components/BusinessHeader";
 import BusinessDashboard from "../../components/BusinessDashboard";
+import './BusinessPage.scss'
 
 class BusinessPage extends Component {
     state={
@@ -30,11 +31,18 @@ class BusinessPage extends Component {
         if (!this.state.establishment) return <></>
         return(
             <section className='business-page'>
-                {this.state.establishment.owner_id === this.state.user.id ? <BusinessDashboard establishment_id={this.state.establishment.id}/> : <></>}
                 <BusinessHeader establishment={this.state.establishment} />
-                <h4>Our Deals</h4>
+                {/* {console.log(this.state.establishment.id)} */}
+                <h4 className='business-page__deals-header'>Our Deals</h4>
+                <ul className='business-page__list-headings'>
+                    <li className='deal-list__entry--headings'>
+                        <div className='deal-list__day-column'>Day</div>
+                        <div className='deal-list__deal-column'>Deal</div>
+                    </li>
+                </ul>
                 {this.state.establishment.owner_id === this.state.user.id ? <DealsList establishment_id={this.state.establishment.id} removeButton={true} />
-                                                                        : <DealsList establishment_id={this.state.establishment.id} user={this.state.user.id}/>}
+                                                                        : <DealsList establishment_id={this.state.establishment.id} user={this.state.user}/>}
+                {this.state.establishment.owner_id === this.state.user.id ? <BusinessDashboard establishment_id={this.state.establishment.id}/> : <></>}
             </section>
         );
     }

@@ -1,6 +1,7 @@
 import {Component} from 'react';
 import axios from 'axios';
 import PlacesList from '../../components/PlacesList'
+import './PlacesPage.scss'
 
 class PlacesPage extends Component {
 

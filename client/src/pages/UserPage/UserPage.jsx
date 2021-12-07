@@ -43,8 +43,8 @@ class UserPage extends Component {
         }
         return (
             <section className='user-page'>
-                <h1>Welcome {this.state.user.name}</h1>
-                <button onClick={this.props.handleLogout}>Log Out</button>
+                <h1 className='user-page__greeting'>Welcome {this.state.user.name}</h1>
+                <button className='user-page__logout' onClick={this.props.handleLogout}>Log Out</button>
                 <FavouritePlacesList />
                 <FavouriteDealsList setFavouriteDeals={this.setFavouriteDeals}/>
                 <WeeklyList today={new Date()} />

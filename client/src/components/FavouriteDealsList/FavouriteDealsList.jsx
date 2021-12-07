@@ -25,7 +25,7 @@ const FavouriteDealsList = ({setFavouriteDeals}) => {
     
     return(
         <section className='favourite-deals'>
-            <h3>Favourite Deals</h3>
+            <h3 className='favourite-deals__title'>Favourite Deals</h3>
             <ul className='favourite-deals__list'>
                 <li className='favourite-deals__entry--headings'>
                     <div className='favourite-deals__day-column'>Day</div>
@@ -33,8 +33,8 @@ const FavouriteDealsList = ({setFavouriteDeals}) => {
                 </li>
                 {deals.map(deal => {
                     return (<li className='favourite-deals__entry' key={deal.id}>
-                                    <div className='favourite-deals__day-column'>{parseDays(deal.day)}</div>
-                                    <Link className='favourite-deals__deal-column' to={`/places/${deal.establishment_id}`}>{deal.details}</Link>
+                                    <Link className='favourite-deals__link' to={`/places/${deal.establishment_id}`}><div className='favourite-deals__day-column'>{parseDays(deal.day)}</div>
+                                    <div className='favourite-deals__deal-column' >{deal.details}</div></Link>
                                     <button className='favourite-deals__button' onClick={()=>removeFromFavouriteDeals(deal.id)}>Remove</button>
                             </li>)
                 })}

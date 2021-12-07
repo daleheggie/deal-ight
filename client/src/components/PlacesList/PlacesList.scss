@@ -1,20 +1,18 @@
-@use '../../styles/mixins' as *;
 @use '../../styles/colours' as *;
+@use '../../styles/mixins' as *;
 
-.favourite-places {
-    &__list{
+.places{
+
+    &__list {
         list-style: none;
         padding: 0;
-    }
-
-    &__title {
-        margin: 16px;
-        font-size: 24px;
+        margin: 0;
     }
 
     &__link {
         text-decoration: none;
         color: inherit;
+        display: flex;
         flex-grow: 2;
     }
 
@@ -23,7 +21,7 @@
         border-bottom: 1px solid $chalkboard;
         align-items: baseline;
         padding: 6px 16px;
-    
+
         &--headings{
             font-weight: 600;
             display: flex;
@@ -34,13 +32,19 @@
             color: $light-script;
             border: none;
         }
-    
+
         &:hover{
             background-color: $light-script;
         }
     }
 
+    &__place-column {
+        width: 80px;
+    }
+
     &__button {
         @include favButton;
+        position: absolute;
+        right: 16px;
     }
 }

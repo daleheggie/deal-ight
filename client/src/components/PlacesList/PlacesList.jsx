@@ -2,6 +2,7 @@ import React from "react";
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { addToFavouritePlaces } from "../../utils/addToFavourites";
+import './PlacesList.scss'
 
 const PlacesList = ({user}) => {
 
@@ -17,18 +18,23 @@ const PlacesList = ({user}) => {
 
     if (!places) return <h2>Oops...looks like there was a problem getting the list of places</h2>
     return(
-        <>
-            <ul>
+        <section className='places'>
+            <ul className='places__list'>
+                <li className='places__entry--headings'>
+                    <div className='places__place-column'>Place</div>
+                    <div className='places__cuisine-column'>Cuisine</div>
+                </li>
                 {places.map(place => {
-                    return (<li key={place.id}>
-                                <Link to={`/places/${place.id}`} >{place.name}</Link> - {place.cuisine} - {place.phone}
+                    return (<li className='places__entry' key={place.id}>
+                                <Link className='places__link' to={`/places/${place.id}`}><div className='places__place-column'>{place.name}</div>
+                                <div className='places__cuisine-column'>{place.cuisine}</div></Link>
                                 {/* Places an 'add to favourites button if there is a user logged in */}
-                                {user ? <button onClick={() => addToFavouritePlaces(place.id)}>Add to favourites</button>
+                                {user ? <button className='places__button' onClick={() => addToFavouritePlaces(place.id)}>Add favourite</button>
                                             : <></>}
                             </li>)
                 })}
             </ul>
-        </>
+        </section>
     );
 }
 

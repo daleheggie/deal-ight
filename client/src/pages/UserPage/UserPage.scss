@@ -1,4 +1,11 @@
-
+@use '../../styles/mixins' as *;
 .user-page {
-    padding: 0 16px;
+    &__greeting {
+        padding: 0 16px;
+    }
+
+    &__logout {
+        @include favButton;
+        margin: 0 16px;
+    }
 }

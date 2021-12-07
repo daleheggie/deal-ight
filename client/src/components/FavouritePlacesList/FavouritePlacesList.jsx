@@ -23,10 +23,16 @@ const FavouritePlacesList = (props) => {
     if (!places) return <h2>Oops...looks like there was a problem getting the list of places</h2>
     return(
         <section className='favourite-places'>
-            <h3>Favourite Places</h3>
+            <h3 className='favourite-places__title'>Favourite Places</h3>
             <ul className='favourite-places__list'>
+                <li className='favourite-places__entry--headings'>
+                    <div className='favourite-places__place'>Place</div>
+                </li>
                 {places.map(place => {
-                    return (<li key= {place.id}><Link className='favourite-places__place' to={`/places/${place.id}`} >{place.name}</Link><button className='favourite-places__button' onClick={()=>removeFromFavouritePlaces(place.id)}>Remove</button></li>)
+                    return (<li className='favourite-places__entry' key= {place.id}>
+                                <Link className='favourite-places__link' to={`/places/${place.id}`}><div className='favourite-places__place'  >{place.name}</div></Link>
+                                <button className='favourite-places__button' onClick={()=>removeFromFavouritePlaces(place.id)}>Remove</button>
+                            </li>)
                 })}
             </ul>
         </section>

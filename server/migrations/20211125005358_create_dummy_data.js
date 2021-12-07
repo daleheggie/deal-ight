@@ -18,7 +18,8 @@ exports.up = function(knex) {
                 table.integer('owner_id')
                     .unsigned()
                     .references('id')
-                    .inTable('users')
+                    .inTable('users');
+                table.string('header_path')
                 table.timestamp('updated_at').defaultTo(knex.fn.now());
             })
             .createTable('deals', table => {

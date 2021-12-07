@@ -1,5 +1,58 @@
+@use '../../styles/colours' as *;
+@use '../../styles/mixins' as *;
+
 .deal-list{
-    &__add-favourite-button{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
+    &__entry {
+        display: flex;
+        border-bottom: 1px solid $chalkboard;
+        align-items: baseline;
+        padding: 6px 16px;
+    
+        &--headings{
+            font-weight: 600;
+            display: flex;
+            border-bottom: 1px solid $chalkboard;
+            align-items: baseline;
+            padding: 6px 16px;
+            background-color: $main-colour;
+            color: $light-script;
+            border: none;
+        }
+    
+        &:hover{
+            background-color: $light-script;
+        }
+    }
+
+    &__link {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    &__place-column {
+        width: 80px;
+        min-width: 80px;
+    }
+
+    &__day-column {
+        width: 75px;
+        min-width: 75px;
+    }
+    
+    &__deal-column {
+        flex-grow: 2;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    &__button {
+        @include favButton;
+        min-width: 90px;
+
         &--hidden {
             display: none;
         }
