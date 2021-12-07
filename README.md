@@ -1,4 +1,4 @@
-<img src='localhost:5000/Dealight-logo.png' alt='Deal-ight logo' style='text-align:center'/>
+<img src='https://github.com/daleheggie/deal-ite/blob/develop/server/public/Dealight-logo.png'/>
 
 # Deal-ight
 
