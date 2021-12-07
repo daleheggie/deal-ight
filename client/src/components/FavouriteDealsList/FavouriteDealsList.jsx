@@ -25,12 +25,12 @@ const FavouriteDealsList = ({setFavouriteDeals}) => {
     
     return(
         <section className='favourite-deals'>
-            <h3 className='favourite-deals__title'>Favourite Deals</h3>
+            {!(deals.length === 0) ? <h3 className='favourite-deals__title'>Favourite Deals</h3> : <></> }
             <ul className='favourite-deals__list'>
-                <li className='favourite-deals__entry--headings'>
+                {!(deals.length === 0) ? <li className='favourite-deals__entry--headings'>
                     <div className='favourite-deals__day-column'>Day</div>
                     <div className='favourite-deals__deal-column'>Deal</div>
-                </li>
+                </li> : <></>}
                 {deals.map(deal => {
                     return (<li className='favourite-deals__entry' key={deal.id}>
                                     <Link className='favourite-deals__link' to={`/places/${deal.establishment_id}`}><div className='favourite-deals__day-column'>{parseDays(deal.day)}</div>
