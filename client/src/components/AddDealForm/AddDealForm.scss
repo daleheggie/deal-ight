@@ -1,0 +1,54 @@
+@use '../../styles/colours' as *;
+
+.new-deal {
+    margin: 16px;
+
+    &__textbox {
+        font-family: 'source-sans';
+        width: 100%;
+        resize: none;
+        height: 60px;
+    }
+
+    &__checkboxes {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__checkbox {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 70px;
+        min-width: 50px;
+    }
+
+    &__until {
+        font-family: 'source-sans'
+    }
+
+    &__button-container {
+        display: flex;
+        justify-content: center;
+        gap: 5%;
+        width: 100%;
+    }
+
+    &__submit-button {
+        margin: 16px 0;
+        padding: 4px 0;
+        width: 100%;
+        color: white;
+        background-color: $main-colour;
+        border-radius: 20px;
+        border: 2px solid $main-colour;
+    }
+
+    &__cancel-button {
+        margin: 16px 0;
+        width: 100%;
+        border-radius: 20px;
+        background-color: white;
+        border: 2px solid $contrast-accent
+    }
+}

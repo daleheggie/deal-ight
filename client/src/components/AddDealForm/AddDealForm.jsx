@@ -1,4 +1,5 @@
 import { Component } from "react";
+import './AddDealForm.scss'
 
 class AddDealForm extends Component {
     state={
@@ -43,33 +44,33 @@ class AddDealForm extends Component {
             <section className='new-deal'>
                 <form className ='new-deal__form' onSubmit={this.handleSubmit}>
                     <div>
-                        <p>Which day/s will your deal run</p>
-                        <input type="checkbox" name="sunday" value="sunday" />
-                        <label for="sunday">Sunday</label>
-                        <input type="checkbox" name="monday" value="monday" />
-                        <label for="sunday">Monday</label>
-                        <input type="checkbox" name="tuesday" value="tuesday" />
-                        <label for="sunday">Tuesday</label>
-                        <input type="checkbox" name="wednesday" value="wednesday" />
-                        <label for="sunday">Wednesday</label>
-                        <input type="checkbox" name="thursday" value="thursday" />
-                        <label for="sunday">Thursday</label>
-                        <input type="checkbox" name="friday" value="friday" />
-                        <label for="sunday">Friday</label>
-                        <input type="checkbox" name="saturday" value="saturday" />
-                        <label for="sunday">Saturday</label>
+                        <p>Add a short but detailed description of the deal you'd like to offer</p>
+                        <textarea className='new-deal__textbox' type='textarea' resize='false' name='details' value={this.state.description} onChange={this.handleChange} autoFocus></textarea>
+                    </div>
+                    <p>Which day/s will your deal run</p>
+                    <div className='new-deal__checkboxes'>
+                        <div className='new-deal__checkbox'><input type="checkbox" name="monday" value="monday" />
+                        <label for="sunday">Monday</label></div>
+                        <div className='new-deal__checkbox'><input type="checkbox" name="tuesday" value="tuesday" />
+                        <label for="sunday">Tuesday</label></div>
+                        <div className='new-deal__checkbox'><input type="checkbox" name="wednesday" value="wednesday" />
+                        <label for="sunday">Wednesday</label></div>
+                        <div className='new-deal__checkbox'><input type="checkbox" name="thursday" value="thursday" />
+                        <label for="sunday">Thursday</label></div>
+                        <div className='new-deal__checkbox'><input type="checkbox" name="friday" value="friday" />
+                        <label for="sunday">Friday</label></div>
+                        <div className='new-deal__checkbox'><input type="checkbox" name="saturday" value="saturday" />
+                        <label for="sunday">Saturday</label></div>
+                        <div className='new-deal__checkbox'><input type="checkbox" name="sunday" value="sunday" />
+                        <label for="sunday">Sunday</label></div>
                     </div>
                     <div>
-                        <p>A short but detailed description of the deal you'd like to offer</p>
-                        <input type='textarea' resize='false' name='details' value={this.state.description} onChange={this.handleChange}></input>
+                        <p>Please select the final date your deal will run</p>
+                        <input className='new-deal__until' type='date' name='until' onChange={this.handleChange}></input>
                     </div>
-                    <div>
-                        <p>Please select the final day your deal will run</p>
-                        <input type='date' name='until' onChange={this.handleChange}></input>
-                    </div>
-                    <div>
-                        <button type="submit">Add new deal</button>
-                        <button onClick={this.props.handleCancel}>Cancel</button>
+                    <div className='new-deal__button-container'>
+                        <button className='new-deal__submit-button' type="submit">Add new deal</button>
+                        <button className='new-deal__cancel-button' onClick={this.props.handleCancel}>Cancel</button>
                     </div>
                     {this.state.isError ? <p>{this.state.errorMessage}</p> : <></>}
                 </form>

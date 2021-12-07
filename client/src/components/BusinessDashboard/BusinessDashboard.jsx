@@ -3,6 +3,7 @@ import axios from 'axios';
 import AddDealForm from '../AddDealForm'
 import { API_URL } from "../../utils/_globals"; 
 import DailyCard from "../DailyCard";
+import './BusinessDashboard.scss'
 
 class BusinessDashboard extends Component {
 
@@ -40,9 +41,9 @@ class BusinessDashboard extends Component {
             );
         }
         return(
-            <>
-                <button onClick={this.handleAddDeal}>Add a new deal</button>
-            </>
+            <section className='business-dashboard'>
+                <button className='add-deal-button' onClick={this.handleAddDeal}>Add a new deal</button>
+            </section>
         );
     }
 }

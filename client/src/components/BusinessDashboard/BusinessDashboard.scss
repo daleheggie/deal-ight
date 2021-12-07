@@ -1,0 +1,13 @@
+@use '../../styles/colours' as *;
+.business-dashboard {
+    margin: 0 16px;
+}
+.add-deal-button {
+    margin: 16px 0;
+    padding: 4px 0;
+    width: 100%;
+    color: white;
+    background-color: $main-colour;
+    border-radius: 20px;
+    border: 2px solid $main-colour;
+}
