@@ -1,4 +1,4 @@
-<img src='https://github.com/daleheggie/deal-ite/blob/develop/server/public/Dealight-logo.png'/>
+<img src='https://github.com/daleheggie/deal-ite/blob/develop/server/public/Dealight-logo.png' style='text-align:center'/>
 
 # Deal-ight
 
