@@ -1,0 +1,35 @@
+@use '../../styles/colours' as *;
+
+.footer {
+    padding: 12px 16px 12px;
+    background-color: $neutral;
+
+    &__name {
+        font-size: 14px;
+        font-weight: 600;
+        p{
+            margin: 8px 0;
+        }
+    }
+
+    &__icon {
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+    }
+
+    &__phone {
+        display: flex;
+        align-items: center;
+    }
+
+    &__email {
+        display: flex;
+        align-items: center;
+    }
+
+    &__link {
+        text-decoration: none;
+        color: inherit;
+    }
+}

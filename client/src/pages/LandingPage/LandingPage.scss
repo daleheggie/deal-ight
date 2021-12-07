@@ -8,5 +8,9 @@
 
     &__about {
         margin: 8px 16px;
+
+        &:last-child {
+            padding-bottom: 12px;
+        }
     }
 }
