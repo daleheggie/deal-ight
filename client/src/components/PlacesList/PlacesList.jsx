@@ -2,6 +2,7 @@ import React from "react";
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { addToFavouritePlaces } from "../../utils/addToFavourites";
+import { API_URL } from "../../utils/_globals";
 import './PlacesList.scss'
 
 const PlacesList = ({user}) => {
@@ -10,7 +11,7 @@ const PlacesList = ({user}) => {
 
     React.useEffect(() => {
         axios
-        .get(`http://localhost:5000/places`)
+        .get(`${API_URL}/places`)
         .then(res => {
             setPlaces(res.data)
         })

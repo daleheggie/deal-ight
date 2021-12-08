@@ -1,6 +1,7 @@
 import { Component } from "react";
 import axios from 'axios';
 import { Redirect } from "react-router-dom";
+import { API_URL } from "../../utils/_globals";
 import './SignupForm.scss'
 
 class SignupForm extends Component {
@@ -36,7 +37,7 @@ class SignupForm extends Component {
         }
         else {
             axios
-                .get(`http://localhost:5000/${username}`)
+                .get(`${API_URL}/${username}`)
                 .then(res => {
                     if (res.data.message) {
                         this.setState({errorMessage: 'This username is already taken, please choose another', isError: true})
@@ -50,7 +51,7 @@ class SignupForm extends Component {
                             confirmPassword: confirmPassword
                         }
                         axios
-                            .post('http://localhost:5000/signup', userInfo)
+                            .post(`${API_URL}/signup`, userInfo)
                             .then(res => {
                                 // Responds with the id of the new user
                             })
@@ -59,17 +60,6 @@ class SignupForm extends Component {
                     }
                 })
         }
-    }
-
-    validateUsername = () => {
-        console.log(this.state.username)
-        // axios
-        //     .get(`http://localhost:5000/${this.state.username}`)
-        //     .then(res => {
-        //         console.log(res)
-        //     })
-
-        return true
     }
 
     handleReturnToLogin = () => {

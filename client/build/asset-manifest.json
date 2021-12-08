@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/static/css/main.750ad394.chunk.css",
+    "main.js": "/static/js/main.593d8862.chunk.js",
+    "main.js.map": "/static/js/main.593d8862.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.1c5caad2.js",
+    "runtime-main.js.map": "/static/js/runtime-main.1c5caad2.js.map",
+    "static/js/2.8f7eeae2.chunk.js": "/static/js/2.8f7eeae2.chunk.js",
+    "static/js/2.8f7eeae2.chunk.js.map": "/static/js/2.8f7eeae2.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.750ad394.chunk.css.map": "/static/css/main.750ad394.chunk.css.map",
+    "static/js/2.8f7eeae2.chunk.js.LICENSE.txt": "/static/js/2.8f7eeae2.chunk.js.LICENSE.txt",
+    "static/media/DailyCard.scss": "/static/media/SourceSansPro-SemiBold.623603c2.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1c5caad2.js",
+    "static/js/2.8f7eeae2.chunk.js",
+    "static/css/main.750ad394.chunk.css",
+    "static/js/main.593d8862.chunk.js"
+  ]
+}

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { addToFavouriteDeals } from "../../utils/addToFavourites";
 import { parseDays } from "../../utils/parseDays";
 import { deleteDeal } from '../../utils/deleteDeal';
+import { API_URL } from "../../utils/_globals";
 import './DealsList.scss';
 
 const DealsList = ({establishment_id, user, removeButton}) => {
@@ -12,7 +13,7 @@ const DealsList = ({establishment_id, user, removeButton}) => {
 
     React.useEffect(() => {
         axios
-        .get(`http://localhost:5000/deals`)
+        .get(`${API_URL}/deals`)
         .then(res => {
             setDeals(res.data)
         })
@@ -50,13 +51,8 @@ const DealsList = ({establishment_id, user, removeButton}) => {
                                         <div className='deal-list__place-column'>{deal.name}</div>
                                         <div className='deal-list__day-column'>{parseDays(deal.day)}</div>
                                         <div className='deal-list__deal-column'>{deal.details}</div>
-                                        
-                                        {/* Places an 'add to favourites button if there is a user logged in */}
-                                        {/* {user ? <button className='deal-list__button' onClick={() => addToFavouriteDeals(deal.id)}>+ Favourite</button>
-                                            : <></>} */}
                                     </li></Link>)
-                        })}
-                
+                        })}  
             </ul>
         </>
     );

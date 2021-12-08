@@ -1,6 +1,7 @@
 import { Component } from 'react';
-import axios from 'axios'
-import './LoginForm.scss'
+import axios from 'axios';
+import { API_URL } from '../../utils/_globals';
+import './LoginForm.scss';
 
 class LoginForm extends Component {
 
@@ -20,7 +21,7 @@ class LoginForm extends Component {
         this.setState({password: ''})
         
         axios
-            .post('http://localhost:5000/login', userInfo)
+            .post(`${API_URL}/login`, userInfo)
             .then(res => {
                 if (!res.data.token) {
                     this.setState({error: res.data.message, isError: true})
@@ -31,7 +32,7 @@ class LoginForm extends Component {
                 }
             })
             .catch(err => {
-                console.log()
+
             })
     }
 
@@ -44,7 +45,6 @@ class LoginForm extends Component {
     render() {
         return(
             <section className='login'>
-                {/* <h1>Login</h1> */}
                 <form id='login-form' className='login__form' onSubmit={this.handleSubmit}>
                     <input type='text' 
                             name='username' 

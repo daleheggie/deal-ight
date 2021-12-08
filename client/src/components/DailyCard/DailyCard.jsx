@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React from 'react';
-import './DailyCard.scss'
+import './DailyCard.scss';
+import { API_URL } from '../../utils/_globals';
 import { addToFavouriteDeals } from '../../utils/addToFavourites'
 
 
@@ -9,7 +10,7 @@ const DailyCard = ({ today }) => {
 
     React.useEffect(() => {
         axios
-        .get(`http://localhost:5000/deals/${today}`)
+        .get(`${API_URL}/deals/${today}`)
         .then(res => {
             setDeals(res.data)
         })

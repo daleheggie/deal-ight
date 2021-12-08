@@ -2,7 +2,8 @@
 
 .landing-banner {
     height: 200px;
-    background-image: url('http://localhost:5000/whistler-village-bc.jpg');
+    background-image: url('https://deal-ite.herokuapp.com/whistler-village-bc.jpg');
+    // background-image: url('http://localhost:5000/whistler-village-bc.jpg');
     background-size: cover;
     background-position: center;
     color: $neutral;

@@ -1,4 +1,7 @@
-const knex = require('knex')(require('../knexfile').development);
+const knex =
+  process.env.NODE_ENV === 'production'
+    ? require('knex')(require('../knexfile').production)
+    : require('knex')(require('../knexfile').development);
 
 const getUser = (req,res) => {
 
@@ -27,7 +30,6 @@ const deleteUser = (req,res) => {
 
 const getUserFavouriteDeals = (req,res) => {
     knex('deals')
-    // .leftJoin('establishments', 'establishment.id', 'deals.establishment_id')
         .whereIn('id', 
             knex('users_deals')
             .select('deal_id')

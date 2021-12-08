@@ -3,6 +3,7 @@ import axios from 'axios';
 import WeeklyList from "../../components/WeeklyList/WeeklyList";
 import FavouritePlacesList from "../../components/FavouritePlacesList";
 import FavouriteDealsList from "../../components/FavouriteDealsList";
+import { API_URL } from "../../utils/_globals"; 
 import './UserPage.scss'
 
 class UserPage extends Component {
@@ -15,7 +16,7 @@ class UserPage extends Component {
     componentDidMount() {
         // Get user details from token
         axios
-            .get(`http://localhost:5000/profile`, {
+            .get(`${API_URL}/profile`, {
                 headers: {
                     Authorization: `Bearer ${sessionStorage.getItem('token')}`
                 }

@@ -30,12 +30,8 @@ module.exports = {
   },
 
   production: {
-    client: 'postgresql',
-    connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
+    client: 'mysql',
+    connection: process.env.JAWSDB_URL,
     pool: {
       min: 2,
       max: 10

@@ -1,6 +1,7 @@
 import {Component} from 'react';
 import axios from 'axios';
 import PlacesList from '../../components/PlacesList'
+import { API_URL } from '../../utils/_globals';
 import './PlacesPage.scss'
 
 class PlacesPage extends Component {
@@ -11,7 +12,7 @@ class PlacesPage extends Component {
 
     componentDidMount() {
         axios
-            .get(`http://localhost:5000/profile`, {
+            .get(`${API_URL}/profile`, {
                 headers: {
                     Authorization: `Bearer ${sessionStorage.getItem('token')}`
                 }

@@ -3,7 +3,7 @@ import axios from 'axios';
 import AddDealForm from '../AddDealForm'
 import { API_URL } from "../../utils/_globals"; 
 import DailyCard from "../DailyCard";
-import './BusinessDashboard.scss'
+import './BusinessDashboard.scss';
 
 class BusinessDashboard extends Component {
 
@@ -25,7 +25,7 @@ class BusinessDashboard extends Component {
                 establishment_id: this.props.establishment_id
             })
             .then(res => {
-                console.log(res)
+                // Responds with the id of the new deal
             })
 
         this.setState({showAddDeal: false})

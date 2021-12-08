@@ -1,4 +1,7 @@
-const knex = require('knex')(require('../knexfile').development);
+const knex =
+  process.env.NODE_ENV === 'production'
+    ? require('knex')(require('../knexfile').production)
+    : require('knex')(require('../knexfile').development);
 
 const dealsByDay = (req,res) => {
     knex('deals')
@@ -33,7 +36,7 @@ const addDeal = (req,res) => {
                 establishment_id: req.body.establishment_id,
                 details: req.body.details})
         .then(data => {
-            console.log(data)
+            res.json(data)
         })
 }
 

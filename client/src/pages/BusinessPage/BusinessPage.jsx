@@ -3,7 +3,8 @@ import axios from 'axios';
 import DealsList from "../../components/DealsList";
 import BusinessHeader from "../../components/BusinessHeader";
 import BusinessDashboard from "../../components/BusinessDashboard";
-import './BusinessPage.scss'
+import './BusinessPage.scss';
+import {API_URL} from '../../utils/_globals';
 
 class BusinessPage extends Component {
     state={
@@ -13,7 +14,7 @@ class BusinessPage extends Component {
     }
     componentDidMount() {
         axios
-            .get(`http://localhost:5000/places/${this.props.match.params.establishment_id}`)
+            .get(`${API_URL}/places/${this.props.match.params.establishment_id}`)
             .then(res => {
                 this.setState({establishment: res.data[0]})
                 axios
@@ -32,7 +33,6 @@ class BusinessPage extends Component {
         return(
             <section className='business-page'>
                 <BusinessHeader establishment={this.state.establishment} />
-                {/* {console.log(this.state.establishment.id)} */}
                 <h4 className='business-page__deals-header'>Our Deals</h4>
                 <ul className='business-page__list-headings'>
                     <li className='deal-list__entry--headings'>

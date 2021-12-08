@@ -2,7 +2,8 @@ import React from "react";
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { removeFromFavouritePlaces } from "../../utils/removeFromFavourites";
-import './FavouritePlacesList.scss'
+import { API_URL } from "../../utils/_globals";
+import './FavouritePlacesList.scss';
 
 const FavouritePlacesList = (props) => {
 
@@ -10,7 +11,7 @@ const FavouritePlacesList = (props) => {
 
     React.useEffect(() => {
         axios
-        .get(`http://localhost:5000/profile/favourite/places`, {
+        .get(`${API_URL}/profile/favourite/places`, {
             headers: {
                 Authorization: `Bearer ${sessionStorage.getItem('token')}`
             }

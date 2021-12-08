@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { removeFromFavouriteDeals } from '../../utils/removeFromFavourites';
 import { parseDays } from "../../utils/parseDays";
+import { API_URL } from "../../utils/_globals";
 import './FavouriteDealsList.scss'
 
 const FavouriteDealsList = ({setFavouriteDeals}) => {
@@ -11,7 +12,7 @@ const FavouriteDealsList = ({setFavouriteDeals}) => {
 
     React.useEffect(() => {
         axios
-        .get(`http://localhost:5000/profile/favourite/deals`, {
+        .get(`${API_URL}/profile/favourite/deals`, {
             headers: {
                 Authorization: `Bearer ${sessionStorage.getItem('token')}`
             }

@@ -1,9 +1,10 @@
+import { API_URL } from '../../utils/_globals';
 import './BusinessHeader.scss'
 
 const BusinessHeader = ({establishment}) => {
 
     let headerStyle = {
-        backgroundImage: `url(http://localhost:5000/${establishment.header_path})`,
+        backgroundImage: `url(${API_URL}/${establishment.header_path})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center'
     }
